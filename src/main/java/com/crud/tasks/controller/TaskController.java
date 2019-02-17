@@ -12,6 +12,7 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/task")
+@CrossOrigin(origins = "*")
 public class TaskController {
 
     @Autowired
@@ -33,7 +34,7 @@ public class TaskController {
     {service.deleteTaskById(id);}
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
-    public TaskDto updateTask(@RequestParam TaskDto taskDto){
+    public TaskDto updateTask(@RequestBody TaskDto taskDto){
         return taskMaper.mapToTaskDto(service.saveTask(taskMaper.mapToTask(taskDto)));
     }
 
