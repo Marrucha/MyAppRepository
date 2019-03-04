@@ -1,8 +1,6 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.domain.CreatedTrelloCard;
-import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.TrelloCardDto;
+import com.crud.tasks.domain.*;
 import com.crud.tasks.trello.config.TrelloConfig;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,9 +72,7 @@ public class TrelloClientTest {
                 "top",
                 "test_id",
                 "http://test.com",
-                1,
-                1,
-                1
+                new Badges(0,new AttachmentType(new Trello(0,0)))
         );
         Mockito.when(restTemplate.postForObject(uri,null,CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
         //when
