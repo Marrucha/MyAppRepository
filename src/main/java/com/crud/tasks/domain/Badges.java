@@ -7,27 +7,22 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+
+@Component
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreatedTrelloCard {
+public class Badges {
 
-    @JsonProperty("name")
-    private String name;
-    @JsonProperty("desc")
-    private String desc;
-    @JsonProperty ("pos")
-    private String pos;
-    @JsonProperty("idList")
-    private String listId;
-    @JsonProperty("shortUrl")
-    private String shortUrl;
+    @JsonProperty("votes")
+    private int votes;
 
     @JsonUnwrapped
-    @Autowired
-    private Badges badges;
+    private AttachmentType attachmentByType;
+
     }
 
 
