@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+
 @RestController
 @RequestMapping("/v1/trello")
 public class TrelloController {
@@ -38,7 +40,7 @@ public class TrelloController {
                 });
     }
 
-    @RequestMapping(method=RequestMethod.POST,value ="createTrelloCard")
+    @RequestMapping(method=RequestMethod.POST,value ="createTrelloCard",consumes = APPLICATION_JSON_VALUE)
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
         return trelloClient.createNewCard(trelloCardDto);
     }
