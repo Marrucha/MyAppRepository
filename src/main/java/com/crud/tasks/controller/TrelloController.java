@@ -30,13 +30,8 @@ public class TrelloController {
 
     @RequestMapping(method=RequestMethod.POST,value ="createTrelloCard",consumes = APPLICATION_JSON_VALUE)
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
-        try {
             return trelloClient.createNewCard(trelloCardDto);
-        }
-        catch(RestClientException e){
-            LOGGER.error(e.getMessage(),e);
-            return null;
-        }
+
     }
 
 }
