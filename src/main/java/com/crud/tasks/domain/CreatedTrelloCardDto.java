@@ -2,32 +2,25 @@ package com.crud.tasks.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
-@Getter
+@JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class CreatedTrelloCard {
+@Getter
+public class CreatedTrelloCardDto {
+
+    @JsonProperty("id")
+    private String id;
 
     @JsonProperty("name")
     private String name;
-    @JsonProperty("desc")
-    private String desc;
-    @JsonProperty ("pos")
-    private String pos;
-    @JsonProperty("idList")
-    private String listId;
+
     @JsonProperty("shortUrl")
     private String shortUrl;
 
-    @JsonUnwrapped
-    @Autowired
+    @JsonProperty("badges")
     private Badges badges;
-    }
-
-
+}

@@ -3,14 +3,14 @@ package com.crud.tasks.domain;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-@Getter
+import java.util.List;
+
 @AllArgsConstructor
-@NoArgsConstructor
+@Getter
 @EqualsAndHashCode
-public class TaskDto {
- private  Long id;
- private  String title;
- private  String content;
+public class TrelloBoard {
+    private String id;
+    private String name;
+    private List<TrelloList> lists;
 }
